@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScentMatch | Personalized Perfume Recommendations</title>
+  <meta name="description" content="ScentMatch analyzes the perfumes you love and creates a personalized Top 10 fragrance recommendation list.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="ScentMatch home">
+      <span class="brand-mark"></span>
+      <span>ScentMatch</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#discover">Discover</a>
+      <a href="#brands">Brands</a>
+      <a href="#dna">My Scent DNA</a>
+      <a href="#matches">Top Matches</a>
+      <a href="#notes">Notes</a>
+      <a href="#compare">Compare</a>
+      <a href="#wishlist">Wishlist</a>
+    </nav>
+    <div class="header-actions">
+      <button class="ghost-button" type="button">Sign In</button>
+      <a class="primary-button compact" href="#builder">Start Matching</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section">
+      <div class="hero-copy">
+        <p class="eyebrow">Personal fragrance stylist</p>
+        <h1>Find Your Next Perfume</h1>
+        <p class="hero-text">Add a perfume you like, choose a few notes, and get clear matches with notes, performance, and buying links.</p>
+        <form class="hero-search" id="heroSearch">
+          <label class="sr-only" for="heroPerfume">Enter a perfume you love</label>
+          <input id="heroPerfume" type="search" placeholder="Type a perfume name..." autocomplete="off">
+          <button class="primary-button" type="submit">Start</button>
+        </form>
+        <p class="try-line">Try: Tobacco Vanille, Libre, Sauvage, Baccarat Rouge 540, By the Fireplace</p>
+        <div class="quick-tags" aria-label="Popular scent tags">
+          <button type="button" data-note="Vanilla">Vanilla</button>
+          <button type="button" data-note="Tobacco">Tobacco</button>
+          <button type="button" data-note="Cherry">Cherry</button>
+          <button type="button" data-note="Amber">Amber</button>
+          <button type="button" data-note="Musk">Clean</button>
+          <button type="button" data-note="Cedar">Woody</button>
+          <button type="button" data-note="Tonka Bean">Sweet</button>
+          <button type="button" data-note="Bergamot">Fresh</button>
+          <button type="button" data-occasion="Date Night">Date Night</button>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="bottle-scene">
+          <div class="perfume-bottle main-bottle">
+            <span class="sprayer"></span>
+            <span class="cap"></span>
+            <span class="label">SM</span>
+          </div>
+          <div class="perfume-bottle side-bottle">
+            <span class="sprayer"></span>
+            <span class="cap"></span>
+            <span class="label">01</span>
+          </div>
+          <div class="accord-card accord-card-one">
+            <strong>96%</strong>
+            <span>Warm Vanilla Amber</span>
+          </div>
+          <div class="accord-card accord-card-two">
+            <strong>Top notes</strong>
+            <span>Cognac / Cinnamon / Tonka</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section">
+      <div class="section-heading">
+        <p class="eyebrow">How it works</p>
+        <h2>How it works</h2>
+      </div>
+      <div class="step-grid">
+        <article>
+          <span>1</span>
+          <h3>Add a perfume</h3>
+          <p>Search for something you own, like, dislike, or want to try.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Pick your taste</h3>
+          <p>Choose notes, season, occasion, and notes to avoid.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Open your matches</h3>
+          <p>See why each perfume fits and where you can buy it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="builder" class="builder-section">
+      <div class="section-heading wide">
+        <p class="eyebrow">Create your profile</p>
+        <h2>Build your Scent DNA</h2>
+        <p>Start with one perfume or use the example taste. You can change everything later.</p>
+      </div>
+      <div class="profile-flow" aria-label="Matching steps">
+        <span><strong>1</strong> Add</span>
+        <span><strong>2</strong> Choose</span>
+        <span><strong>3</strong> Match</span>
+        <span><strong>4</strong> Buy</span>
+      </div>
+
+      <div class="builder-layout">
+        <aside class="builder-panel input-panel">
+          <h3>Your taste</h3>
+          <p class="muted">Add perfumes and mark how you feel about them.</p>
+          <p class="helper-card">Fast start: press Example Taste, then Show Matches.</p>
+          <div class="search-stack">
+            <label for="perfumeSearch">Perfume name</label>
+            <input id="perfumeSearch" list="perfumeOptions" type="search" placeholder="Search perfume...">
+            <datalist id="perfumeOptions"></datalist>
+          </div>
+          <div class="sentiment-grid" id="sentimentGrid">
+            <button type="button" data-sentiment="love" class="active">Love</button>
+            <button type="button" data-sentiment="like">Like</button>
+            <button type="button" data-sentiment="okay">Okay</button>
+            <button type="button" data-sentiment="dislike">Dislike</button>
+            <button type="button" data-sentiment="similar">Similar</button>
+            <button type="button" data-sentiment="different">Different</button>
+          </div>
+          <button class="primary-button full" id="addPerfumeBtn" type="button">Add</button>
+          <div class="collection-list" id="collectionList">
+            <p class="empty-state">You have not added any perfumes yet. Add at least three fragrances you love to create your Scent DNA.</p>
+          </div>
+        </aside>
+
+        <div class="preferences-panel">
+          <div class="preference-block" id="notes">
+            <div class="block-header">
+              <h3>Notes you like</h3>
+              <button class="text-button" id="clearWanted" type="button">Clear</button>
+            </div>
+            <div class="note-category-grid" id="wantedNotes"></div>
+          </div>
+
+          <div class="preference-block avoid-block">
+            <div class="block-header">
+              <h3>Notes to avoid</h3>
+              <button class="text-button" id="clearAvoided" type="button">Clear</button>
+            </div>
+            <p class="muted">Matches with these notes get a lower score.</p>
+            <div class="avoid-grid" id="avoidNotes"></div>
+          </div>
+
+          <div class="split-controls">
+            <div class="preference-block">
+              <h3>Season</h3>
+              <div class="choice-grid" id="seasonChoices"></div>
+            </div>
+            <div class="preference-block">
+              <h3>Occasion</h3>
+              <div class="choice-grid" id="occasionChoices"></div>
+            </div>
+          </div>
+
+          <div class="generate-bar">
+            <div>
+              <strong>Ready.</strong>
+              <span id="profileHint">Add perfume or use the example taste. Open a match to see buying links.</span>
+            </div>
+            <div class="generate-actions">
+              <button class="secondary-button" id="sampleProfileBtn" type="button">Example Taste</button>
+              <button class="secondary-button" id="resetProfileBtn" type="button">Clear</button>
+              <button class="primary-button" id="generateBtn" type="button">Show Matches</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dna" class="dna-section">
+      <div class="dna-summary">
+        <p class="eyebrow">Your Scent DNA</p>
+        <h2 id="dnaTitle">Warm Vanilla Amber</h2>
+        <p id="dnaDescription">Your scent profile is warm, sweet, and elegant. You are most likely drawn to cozy, sensual fragrances with vanilla, amber, spice, woods, and soft tobacco.</p>
+        <div class="style-tags" id="styleTags">
+          <span>Warm</span>
+          <span>Sweet</span>
+          <span>Woody</span>
+          <span>Vanilla</span>
+          <span>Amber</span>
+        </div>
+      </div>
+      <div class="dna-bars" id="dnaBars" aria-live="polite"></div>
+    </section>
+
+    <section id="matches" class="matches-section">
+      <div class="section-heading wide">
+        <p class="eyebrow">Top matches</p>
+        <h2>Your Top 10 Perfume Matches</h2>
+        <p id="recommendationIntro">Your matches are ready. We found fragrances that match your favorite notes, seasons, and scent style.</p>
+      </div>
+      <div class="match-list" id="matchList"></div>
+    </section>
+
+    <section id="discover" class="discover-section">
+      <div class="section-heading wide">
+        <p class="eyebrow">Perfume search</p>
+        <h2>Explore popular scents</h2>
+        <p>Search by brand, note, season, occasion, intensity, or vibe.</p>
+      </div>
+      <div class="filter-bar">
+        <label class="sr-only" for="catalogSearch">Search catalog</label>
+        <input id="catalogSearch" type="search" placeholder="Search fragrances, brands, notes, or vibes...">
+        <select id="catalogBrand" aria-label="Filter by brand">
+          <option value="">All brands</option>
+        </select>
+        <select id="catalogSeason" aria-label="Filter by season">
+          <option value="">All seasons</option>
+          <option>Spring</option>
+          <option>Summer</option>
+          <option>Autumn</option>
+          <option>Winter</option>
+          <option>All Year</option>
+        </select>
+      </div>
+      <p class="catalog-stats" id="catalogStats"></p>
+      <div class="catalog-grid" id="catalogGrid"></div>
+    </section>
+
+    <section id="brands" class="brands-section">
+      <div class="section-heading wide">
+        <p class="eyebrow">Popular designers</p>
+        <h2>Browse perfume brands</h2>
+        <p>This directory uses the brand counts you provided. ScentMatch shows how many perfumes are already available locally and lets you filter the catalog by brand.</p>
+      </div>
+      <div class="brand-tools">
+        <label class="sr-only" for="brandSearch">Search brands</label>
+        <input id="brandSearch" type="search" placeholder="Search a brand, for example Dior, Lattafa, Zara...">
+        <button class="secondary-button" id="showLoadedBrandsBtn" type="button">Show brands with perfumes</button>
+        <button class="secondary-button" id="showAllBrandsBtn" type="button">Show all brands</button>
+      </div>
+      <p class="catalog-stats" id="brandStats"></p>
+      <div class="brand-grid" id="brandGrid"></div>
+    </section>
+
+    <section id="compare" class="compare-section">
+      <div class="section-heading wide">
+        <p class="eyebrow">Compare scents</p>
+        <h2>Tobacco Vanille vs Angels' Share</h2>
+        <p>Choose Tobacco Vanille if you want a bold tobacco-vanilla scent. Choose Angels' Share if you want something sweeter, smoother, and more gourmand.</p>
+      </div>
+      <div class="comparison-table" role="table" aria-label="Perfume comparison">
+        <div role="row" class="table-head"><span>Feature</span><span>Tobacco Vanille</span><span>Angels' Share</span></div>
+        <div role="row"><span>Main vibe</span><span>Tobacco Vanilla</span><span>Boozy Cinnamon Vanilla</span></div>
+        <div role="row"><span>Best season</span><span>Winter</span><span>Autumn / Winter</span></div>
+        <div role="row"><span>Sweetness</span><span>High</span><span>High</span></div>
+        <div role="row"><span>Projection</span><span>Strong</span><span>Moderate-Strong</span></div>
+        <div role="row"><span>Longevity</span><span>Very Long</span><span>Long</span></div>
+        <div role="row"><span>Safer blind buy</span><span>No</span><span>Medium</span></div>
+      </div>
+    </section>
+
+    <section id="wishlist" class="wishlist-section">
+      <div class="section-heading wide">
+        <p class="eyebrow">Wishlist & collection</p>
+        <h2>Saved fragrances</h2>
+        <p>The more perfumes you add, the smarter your recommendations become.</p>
+      </div>
+      <div class="wishlist-grid" id="wishlistGrid"></div>
+    </section>
+  </main>
+
+  <dialog class="perfume-dialog" id="perfumeDialog">
+    <button class="dialog-close" id="closeDialog" type="button" aria-label="Close perfume details">x</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <script src="data/perfume-database.js"></script>
+  <script src="data/douglas-catalog.js"></script>
+  <script src="data/focused-brand-catalog.js"></script>
+  <script src="data/brand-directory.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
